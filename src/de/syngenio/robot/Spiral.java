@@ -9,29 +9,20 @@ public class Spiral {
 	}
 	
 	public void walkSpiral() {
-		_robot.move(1);
-		_robot.turnleft(90);
-		_robot.move(1);
-		_robot.turnleft(90);
+		walk2Sides(1);
+		walk2Sides(2);
+		walk2Sides(3);
+		walk2Sides(4);
+		walk2Sides(5);
+	}
 
-		_robot.move(2);
+	
+	
+	
+	private void walk2Sides(int steps) {
+		_robot.move(steps);
 		_robot.turnleft(90);
-		_robot.move(2);
-		_robot.turnleft(90);
-
-		_robot.move(3);
-		_robot.turnleft(90);
-		_robot.move(3);
-		_robot.turnleft(90);
-
-		_robot.move(4);
-		_robot.turnleft(90);
-		_robot.move(4);
-		_robot.turnleft(90);
-
-		_robot.move(5);
-		_robot.turnleft(90);
-		_robot.move(5);
+		_robot.move(steps);
 		_robot.turnleft(90);
 	}
 }
