@@ -9,11 +9,9 @@ public class Spiral {
 	}
 	
 	public void walkSpiral() {
-		walk2Sides(1);
-		walk2Sides(2);
-		walk2Sides(3);
-		walk2Sides(4);
-		walk2Sides(5);
+		for (int steps = 1; steps <= 5; steps++) {
+			walk2Sides(steps);
+		}
 	}
 
 	
