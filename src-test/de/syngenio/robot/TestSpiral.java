@@ -26,11 +26,9 @@ public class TestSpiral {
 		
 		_spiral.walkSpiral();
 		
-		verify2Sides(inorder, 1);
-		verify2Sides(inorder, 2);
-		verify2Sides(inorder, 3);
-		verify2Sides(inorder, 4);
-		verify2Sides(inorder, 5);
+		for (int steps = 1; steps <= 5; steps++) {
+			verify2Sides(inorder, steps);
+		}
 
 	}
 
