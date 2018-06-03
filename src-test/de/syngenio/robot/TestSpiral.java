@@ -26,29 +26,18 @@ public class TestSpiral {
 		
 		_spiral.walkSpiral();
 		
-		inorder.verify(_robot).move(1);
-		inorder.verify(_robot).turnleft(90);
-		inorder.verify(_robot).move(1);
-		inorder.verify(_robot).turnleft(90);
+		verify2Sides(inorder, 1);
+		verify2Sides(inorder, 2);
+		verify2Sides(inorder, 3);
+		verify2Sides(inorder, 4);
+		verify2Sides(inorder, 5);
 
-		inorder.verify(_robot).move(2);
-		inorder.verify(_robot).turnleft(90);
-		inorder.verify(_robot).move(2);
-		inorder.verify(_robot).turnleft(90);
+	}
 
-		inorder.verify(_robot).move(3);
+	private void verify2Sides(InOrder inorder, int steps) {
+		inorder.verify(_robot).move(steps);
 		inorder.verify(_robot).turnleft(90);
-		inorder.verify(_robot).move(3);
-		inorder.verify(_robot).turnleft(90);
-
-		inorder.verify(_robot).move(4);
-		inorder.verify(_robot).turnleft(90);
-		inorder.verify(_robot).move(4);
-		inorder.verify(_robot).turnleft(90);
-
-		inorder.verify(_robot).move(5);
-		inorder.verify(_robot).turnleft(90);
-		inorder.verify(_robot).move(5);
+		inorder.verify(_robot).move(steps);
 		inorder.verify(_robot).turnleft(90);
 	}
 
