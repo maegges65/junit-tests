@@ -42,3 +42,21 @@ The test class demonstrates the use of the factory to avoid spies.
 Based on demo4, but this time with a `try {...} finally {...}` block.
 
 The test class demonstrate how to test behaviour for exceptions.
+
+### demo6
+
+Based on demo3, but uses powermockito to mock constructors and verify method calls.
+
+### demo6b
+
+Same as demo6 but uses `@Mock` annotations.
+
+### demo7 
+
+A simple example to demonstrate the the use of inorder verification.
+
+### robot
+
+A simple example of a hyptothetical rbot that moves along a rectangular spiral outwards. 
+Look at the branch `refactoring` to see how this setup can be used for reactoring.
+
