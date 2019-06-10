@@ -57,6 +57,6 @@ A simple example to demonstrate the the use of inorder verification.
 
 ### robot
 
-A simple example of a hyptothetical rbot that moves along a rectangular spiral outwards. 
+A simple example of a hyptothetical robot that moves along a rectangular spiral outwards. 
 Look at the branch `refactoring` to see how this setup can be used for reactoring.
 
