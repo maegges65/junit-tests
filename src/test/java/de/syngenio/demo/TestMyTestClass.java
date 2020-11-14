@@ -1,16 +1,18 @@
 package de.syngenio.demo;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
+import static org.hamcrest.Matchers.*;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TestMyTestClass {
 
 	private MyTestClass _testObject;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		_testObject = new MyTestClass();
 	}
@@ -18,23 +20,24 @@ public class TestMyTestClass {
 	@Test
 	public void assureThatDoSomethingReturnsLowValueInts() {
 		int returned = _testObject.doSomething("", 0);
-		assertThat(returned, Matchers.is(0));
+		assertThat(returned, is(0));
 		returned = _testObject.doSomething("", 9);
-		assertThat(returned, Matchers.is(9));
+		assertThat(returned, is(9));
 		returned = _testObject.doSomething("", Integer.MIN_VALUE);
-		assertThat(returned, Matchers.is(Integer.MIN_VALUE));
+		assertThat(returned, is(Integer.MIN_VALUE));
 	}
 
 	@Test
 	public void assureThatDoSomethingReturnsParsedStringForHighParam2Values() {
 		int returned = _testObject.doSomething("1234", 10);
-		assertThat(returned, Matchers.is(1234));
+		assertThat(returned, is(1234));
 		returned = _testObject.doSomething("4567", Integer.MAX_VALUE);
-		assertThat(returned, Matchers.is(4567));
+		assertThat(returned, is(4567));
 	}
 	
-	@Test(expected=NumberFormatException.class)
+	@Test
 	public void assureThatDoSomethingThrowsExceptionForNonParseableString() {
-		_testObject.doSomething("+-*~", 10);
+		Assertions.assertThrows(NumberFormatException.class, () -> 
+			_testObject.doSomething("+-*~", 10));
 	}
 }

@@ -1,19 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="bin/test" path="src/test/java">
+	<classpathentry output="bin/test" kind="src" path="src/test/java">
 		<attributes>
 			<attribute name="gradle_scope" value="test"/>
 			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="bin/main" path="src/main/java">
+	<classpathentry output="bin/main" kind="src" path="src/main/java">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-junit-jupiter/3.6.0/8115f39cae68b976c432b317abb93609a90004f3/mockito-junit-jupiter-3.6.0-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-junit-jupiter/3.6.0/c06e9d5514c82f27707693a4195182415874f0d4/mockito-junit-jupiter-3.6.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-all/1.3/47e033b7ab18c5dbd5fe29fc1bd5a40afe028818/hamcrest-all-1.3-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-all/1.3/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.3.1/b03f607c0822a283c972e37eaeacb00dc3a3c2e7/junit-jupiter-api-5.3.1-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.3.1/a7e97eac2784395cb991403f9641b042ad972941/junit-jupiter-api-5.3.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/3.6.0/6abab55200d7bcb5bb4e0d50feaa0a6fcb6b9969/mockito-core-3.6.0-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/3.6.0/48657987075fea2e2176634ae35aaa5e93c929ef/mockito-core-3.6.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.3.1/297bb35bca3d229c5e6edbffd22de7b5ad4cf430/junit-platform-commons-1.3.1-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.3.1/67b7edddfac1935e6e6d9b58d7c7df6db59b1d39/junit-platform-commons-1.3.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.0.0/777508fa9f3e03cafb3c1fb2eba3dca317f4b1ee/apiguardian-api-1.0.0-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.0.0/3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d/apiguardian-api-1.0.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.1.1/88a3a2cb15c413565462cea99f201b67bc6d2f10/opentest4j-1.1.1-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.1.1/efd9f971e91074491ea55b19f67b13470cf4fcdd/opentest4j-1.1.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.10.15/8d60df068a9009ffcde1cc39dea27878cb79819f/byte-buddy-1.10.15-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.10.15/259957c76d345cb3db5411f57a0654300aaca04c/byte-buddy-1.10.15.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.10.15/3f552c080aab2cd7d2a6a4bdad890b74207a7bad/byte-buddy-agent-1.10.15-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.10.15/7f0cc687ee3177fd451d17b9b80325a8cdd1c7ff/byte-buddy-agent-1.10.15.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/3.1/36e4b278b98654980a51e36ef60b186a757ed3d7/objenesis-3.1-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/3.1/48f12deaae83a8dfc3775d830c9fd60ea59bbbca/objenesis-3.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.3.1/c769957170b2240854d6da6c6706dcc2a281542f/junit-jupiter-engine-5.3.1-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.3.1/e2676b1786c57a80eb98f5bebd51a3d05e228c40/junit-jupiter-engine-5.3.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/a9df56f0d77553e469fbcc0b5cb2e3b01d3b24fe/junit-jupiter-api-5.4.2-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/665d1c0daecb26c6210c872768000b417e7e52b6/junit-jupiter-api-5.4.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.3.1/effe038ffcf21f6988e78b12119ca456d7d144fd/junit-platform-engine-1.3.1-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.3.1/3ee68a06bbdab157dd260e2095c356481d6cd172/junit-platform-engine-1.3.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/2e434692947b66671a53b7ec887d50688dc61baf/junit-platform-commons-1.4.2-sources.jar" kind="lib" path="C:/Users/erich_dz0mtpl/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/37993dc807ca253aa347be8968a0ae7b70642dbc/junit-platform-commons-1.4.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
 </classpath>

@@ -1,15 +1,16 @@
 package de.syngenio.demo5;
 
-import static org.junit.Assert.fail;
-import static org.mockito.Matchers.anyInt;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TestController {
 
@@ -18,7 +19,7 @@ public class TestController {
 	private Controller _controller;
 	private InfrastructureFactory _factory;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		_actor = mock(Actor.class);
 		_sensor = mock(Sensor.class);
@@ -28,14 +29,16 @@ public class TestController {
 		_controller = new Controller(_factory);
 	}
 
-	@Test(expected=RuntimeException.class)
+	@Test
 	public void assureThatMotorIsStoppedWhenBlocked() {
+		Assertions.assertThrows(RuntimeException.class, () -> {
 		when(_sensor.isMotorBlocked()).thenReturn(true);
 		
 		_controller.singleDecision();
 
 		verify(_actor).stopMotor();
 		verify(_actor,times(0)).moveMotor(anyInt());
+		});
 	}
 	
 	@Test
@@ -73,8 +76,9 @@ public class TestController {
 
 	}
 
-	@Test(expected=RuntimeException.class)
+	@Test
 	public void assureThatWaitUntilLastActionFinishedEvenIfExceptionOccurs() {
+		Assertions.assertThrows(RuntimeException.class, () -> { 
 		try {
 			when(_sensor.getBrightness()).thenReturn(15);
 			when(_sensor.getTemperature()).thenReturn(30);
@@ -84,5 +88,6 @@ public class TestController {
 		} finally {
 			verify(_actor).waitUntilLastActionFinished();
 		}
+		});
 	}
 }

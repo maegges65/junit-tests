@@ -6,9 +6,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TestController {
 
@@ -16,7 +15,7 @@ public class TestController {
 	private Sensor _sensor;
 	private Controller _controller;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		_actor = mock(Actor.class);
 		_sensor = mock(Sensor.class);

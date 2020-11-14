@@ -4,8 +4,9 @@ import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.exceptions.verification.VerificationInOrderFailure;
 
@@ -14,7 +15,7 @@ public class TestDelegator {
 	private Delegator _delegator;
 	private Delegate _delegate;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		_delegate = mock(Delegate.class);
 		_delegator = new Delegator(_delegate);
@@ -30,8 +31,9 @@ public class TestDelegator {
 		verify(_delegate).d();
 	}
 
-	@Test(expected=VerificationInOrderFailure.class)
+	@Test
 	public void testForExceptionIfIncorrectSequence() {
+		Assertions.assertThrows(VerificationInOrderFailure.class, () -> {
 		InOrder inorder = inOrder(_delegate);
 		
 		_delegator.doSomethingComplex();
@@ -40,6 +42,7 @@ public class TestDelegator {
 		inorder.verify(_delegate).b();
 		inorder.verify(_delegate).c();
 		inorder.verify(_delegate).d();
+		});
 	}
 
 	@Test
