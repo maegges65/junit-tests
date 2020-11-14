@@ -1,11 +1,12 @@
 package de.syngenio.demo2;
 
-import static org.mockito.Matchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,13 +26,13 @@ public class TestController {
 	@Test
 	public void assureThatMotorIsStoppedWhenBlocked() {
 		when(_sensor.isMotorBlocked()).thenReturn(true);
-		
+
 		_controller.singleDecision();
 
 		verify(_actor).stopMotor();
 		verify(_actor,times(0)).moveMotor(anyInt());
 	}
-	
+
 	@Test
 	public void assureThatMotorIsMovedCorrectly() {
 		when(_sensor.isMotorBlocked()).thenReturn(false);
@@ -46,7 +47,7 @@ public class TestController {
 		when(_sensor.getTemperature()).thenReturn(15);
 		_controller.singleDecision();
 		verify(_actor).moveMotor(5);
-		
+
 		// ...
 
 	}

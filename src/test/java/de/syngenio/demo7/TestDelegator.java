@@ -1,10 +1,10 @@
 package de.syngenio.demo7;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
@@ -24,7 +24,7 @@ public class TestDelegator {
 	@Test
 	public void invalidTestForCorrectSequence() {
 		_delegator.doSomethingComplex();
-		
+
 		verify(_delegate).a();
 		verify(_delegate).b();
 		verify(_delegate).c();
@@ -33,24 +33,24 @@ public class TestDelegator {
 
 	@Test
 	public void testForExceptionIfIncorrectSequence() {
-		Assertions.assertThrows(VerificationInOrderFailure.class, () -> {
-		InOrder inorder = inOrder(_delegate);
-		
-		_delegator.doSomethingComplex();
-		
-		inorder.verify(_delegate).a();
-		inorder.verify(_delegate).b();
-		inorder.verify(_delegate).c();
-		inorder.verify(_delegate).d();
+		assertThrows(VerificationInOrderFailure.class, () -> {
+			InOrder inorder = inOrder(_delegate);
+
+			_delegator.doSomethingComplex();
+
+			inorder.verify(_delegate).a();
+			inorder.verify(_delegate).b();
+			inorder.verify(_delegate).c();
+			inorder.verify(_delegate).d();
 		});
 	}
 
 	@Test
 	public void testForCorrectSequence() {
 		InOrder inorder = inOrder(_delegate);
-		
+
 		_delegator.doSomethingComplex();
-		
+
 		inorder.verify(_delegate).d();
 		inorder.verify(_delegate).c();
 		inorder.verify(_delegate).b();

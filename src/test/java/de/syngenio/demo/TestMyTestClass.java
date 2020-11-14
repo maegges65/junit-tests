@@ -1,10 +1,9 @@
 package de.syngenio.demo;
 
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import static org.hamcrest.Matchers.*;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ public class TestMyTestClass {
 	public void setUp() {
 		_testObject = new MyTestClass();
 	}
-	
+
 	@Test
 	public void assureThatDoSomethingReturnsLowValueInts() {
 		int returned = _testObject.doSomething("", 0);
@@ -34,10 +33,10 @@ public class TestMyTestClass {
 		returned = _testObject.doSomething("4567", Integer.MAX_VALUE);
 		assertThat(returned, is(4567));
 	}
-	
+
 	@Test
 	public void assureThatDoSomethingThrowsExceptionForNonParseableString() {
-		Assertions.assertThrows(NumberFormatException.class, () -> 
-			_testObject.doSomething("+-*~", 10));
+		assertThrows(NumberFormatException.class, () -> 
+		_testObject.doSomething("+-*~", 10));
 	}
 }

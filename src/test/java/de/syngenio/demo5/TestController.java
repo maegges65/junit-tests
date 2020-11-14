@@ -1,14 +1,14 @@
 package de.syngenio.demo5;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,21 +31,21 @@ public class TestController {
 
 	@Test
 	public void assureThatMotorIsStoppedWhenBlocked() {
-		Assertions.assertThrows(RuntimeException.class, () -> {
-		when(_sensor.isMotorBlocked()).thenReturn(true);
-		
-		_controller.singleDecision();
+		assertThrows(RuntimeException.class, () -> {
+			when(_sensor.isMotorBlocked()).thenReturn(true);
 
-		verify(_actor).stopMotor();
-		verify(_actor,times(0)).moveMotor(anyInt());
+			_controller.singleDecision();
+
+			verify(_actor).stopMotor();
+			verify(_actor,times(0)).moveMotor(anyInt());
 		});
 	}
-	
+
 	@Test
 	public void assureThatMotorIsStoppedWhenBlocked2() {
 		try {
 			when(_sensor.isMotorBlocked()).thenReturn(true);
-			
+
 			_controller.singleDecision();
 			fail("should have encountered exception");
 		} catch (Exception e) {
@@ -54,7 +54,7 @@ public class TestController {
 			verify(_actor).waitUntilLastActionFinished();
 		}
 	}
-	
+
 	@Test
 	public void assureThatMotorIsMovedCorrectly() {
 		when(_sensor.isMotorBlocked()).thenReturn(false);
@@ -71,23 +71,23 @@ public class TestController {
 		_controller.singleDecision();
 		verify(_actor).moveMotor(5);
 		verify(_actor, times(2)).waitUntilLastActionFinished();
-		
+
 		// ...
 
 	}
 
 	@Test
 	public void assureThatWaitUntilLastActionFinishedEvenIfExceptionOccurs() {
-		Assertions.assertThrows(RuntimeException.class, () -> { 
-		try {
-			when(_sensor.getBrightness()).thenReturn(15);
-			when(_sensor.getTemperature()).thenReturn(30);
-			doThrow(new RuntimeException("Motor too hot")).when(_actor).moveMotor(anyInt());
+		assertThrows(RuntimeException.class, () -> { 
+			try {
+				when(_sensor.getBrightness()).thenReturn(15);
+				when(_sensor.getTemperature()).thenReturn(30);
+				doThrow(new RuntimeException("Motor too hot")).when(_actor).moveMotor(anyInt());
 
-			_controller.singleDecision();
-		} finally {
-			verify(_actor).waitUntilLastActionFinished();
-		}
+				_controller.singleDecision();
+			} finally {
+				verify(_actor).waitUntilLastActionFinished();
+			}
 		});
 	}
 }

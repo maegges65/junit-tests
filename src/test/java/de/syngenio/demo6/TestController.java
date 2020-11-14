@@ -1,48 +1,48 @@
 package de.syngenio.demo6;
 
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Mockito.mock;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.mockConstruction;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.MockedConstruction;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(Controller.class)
+@ExtendWith(MockitoExtension.class)
 public class TestController {
 
 	private Actor _actor;
 	private Sensor _sensor;
+
 	private Controller _controller;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
-		_actor = mock(Actor.class);
-		_sensor = mock(Sensor.class);
-		PowerMockito.whenNew(Actor.class).withNoArguments().thenReturn(_actor);
-		PowerMockito.whenNew(Sensor.class).withNoArguments().thenReturn(_sensor);
-		
-		_controller = new Controller();
-		
+		try (MockedConstruction<Actor> actorMock = mockConstruction(Actor.class)) {
+			try (MockedConstruction<Sensor> sensorMock = mockConstruction(Sensor.class)) {
+				_controller = new Controller();
+				_actor = actorMock.constructed().get(0);
+				_sensor = sensorMock.constructed().get(0);
+			}
+		}
+
 	}
 
 	@Test
 	public void assureThatMotorIsStoppedWhenBlocked() {
 		when(_sensor.isMotorBlocked()).thenReturn(true);
-		
+
 		_controller.singleDecision();
 
 		verify(_actor).stopMotor();
 		verify(_actor,times(0)).moveMotor(anyInt());
 	}
-	
+
 	@Test
 	public void assureThatMotorIsMovedCorrectly() {
 		when(_sensor.isMotorBlocked()).thenReturn(false);
@@ -57,7 +57,7 @@ public class TestController {
 		when(_sensor.getTemperature()).thenReturn(15);
 		_controller.singleDecision();
 		verify(_actor).moveMotor(5);
-		
+
 		// ...
 
 	}

@@ -1,9 +1,13 @@
 # junit-tests
-This project is intended to teach beginners working with unit tests using , junit and (power)mockito.
+This project is intended to teach beginners working with unit tests using , junit5 and mockito.
 
 ## Project Structure
-Example Code is found in `src`, the associated tests can be found in `src-test`,
-the needed libraries are in `libs`.
+Example Code is found in `src/main/java`, the associated tests can be found in `src/test/java`, dependencies are declared in `build.gradle`.
+If you use IntelliJ&rt;, a simple import from gradle should suffice, for eclipse a 
+
+	./gradlew eclipse
+	
+is suggested. 
 
 ## Free Use
 This repository may be used freely, providing that changes are not comitted on the master branch.
@@ -13,7 +17,7 @@ To clone it from the command line, use:
 
 ## Description
 
-For each example, there is a separate package in both the `src` and the `src-test` folder.
+For each example, there is a separate package in both the `main` and the `test` folder.
 
 ### demo
 
@@ -45,11 +49,7 @@ The test class demonstrate how to test behaviour for exceptions.
 
 ### demo6
 
-Based on demo3, but uses powermockito to mock constructors and verify method calls.
-
-### demo6b
-
-Same as demo6 but uses `@Mock` annotations.
+Based on demo3, but uses `Mockito.mockConstruction()` to mock constructors and verify method calls.
 
 ### demo7 
 
